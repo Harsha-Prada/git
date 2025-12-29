@@ -1,5 +1,5 @@
 /* ===============================
-   GLOBAL RESET & BASE
+   BASE
 ================================ */
 * {
   box-sizing: border-box;
@@ -8,21 +8,20 @@
 body {
   margin: 0;
   font-family: "Poppins", "Noto Sans Tamil", sans-serif;
-  background: #f4fbf6;
-  color: #1b3a2f;
+  background: #f7fbf8;
+  color: #1f3d2b;
 }
 
 /* ===============================
-   HEADER
+   HEADER (CLEAN & OFFICIAL)
 ================================ */
 header {
+  background: #ffffff;
+  padding: 14px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 40px;
-  background: linear-gradient(90deg, #1b5e20, #2e7d32);
-  color: white;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+  border-bottom: 1px solid #e0eee5;
 }
 
 .header-left {
@@ -32,138 +31,134 @@ header {
 }
 
 .logo {
-  font-size: 30px;
+  font-size: 26px;
 }
 
 .brand {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
-  letter-spacing: 0.5px;
+  color: #1b5e20;
 }
 
 .header-right {
-  background: rgba(255,255,255,0.15);
-  padding: 6px 14px;
-  border-radius: 20px;
   font-size: 13px;
+  color: #2e7d32;
+  background: #e8f5e9;
+  padding: 6px 12px;
+  border-radius: 14px;
 }
 
 /* ===============================
-   MAIN SECTION
+   MAIN LAYOUT
 ================================ */
 .main {
-  padding: 70px 40px;
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 50px;
-  align-items: center;
+  padding: 40px 20px 20px;
+  max-width: 900px;
+  margin: auto;
 }
 
+/* ===============================
+   INFO SECTION
+================================ */
 .info {
-  max-width: 600px;
+  margin-bottom: 30px;
 }
 
 .badge {
   display: inline-block;
-  background: #c8e6c9;
+  background: #e8f5e9;
   color: #1b5e20;
-  padding: 6px 16px;
+  padding: 6px 14px;
   border-radius: 20px;
-  font-size: 13px;
-  margin-bottom: 14px;
+  font-size: 12px;
+  margin-bottom: 12px;
 }
 
 .info h1 {
-  font-size: 36px;
-  margin: 10px 0 14px;
+  font-size: 26px;
+  line-height: 1.4;
+  margin: 0 0 10px;
 }
 
 .info p {
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.7;
-  opacity: 0.9;
+  color: #355f4b;
 }
 
 /* ===============================
-   UPLOAD CARD
+   UPLOAD AREA (MINIMAL, MODERN)
 ================================ */
 .upload-card {
-  background: white;
-  padding: 34px;
-  border-radius: 18px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
 }
 
 .upload-card h3 {
-  margin-top: 0;
-  font-size: 20px;
+  margin: 0 0 14px;
+  font-size: 17px;
+  color: #1b5e20;
 }
 
 input[type="file"] {
   width: 100%;
-  margin: 20px 0;
-  padding: 10px;
-  border: 1px dashed #81c784;
-  border-radius: 10px;
-  background: #f1f8f4;
+  padding: 16px;
+  border-radius: 12px;
+  border: 2px dashed #a5d6a7;
+  background: #f4fbf6;
+  font-size: 14px;
 }
 
 button {
   width: 100%;
-  padding: 14px;
-  background: #2e7d32;
+  margin-top: 16px;
+  padding: 16px;
+  background: #1b5e20;
   color: white;
   border: none;
-  border-radius: 12px;
+  border-radius: 14px;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: background 0.2s ease;
 }
 
 button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+  background: #2e7d32;
 }
 
+/* ===============================
+   RESULT (CALM & CLEAR)
+================================ */
 .result {
   margin-top: 20px;
   font-size: 16px;
   font-weight: 600;
   color: #1b5e20;
+  background: #e8f5e9;
+  padding: 14px;
+  border-radius: 12px;
+  text-align: center;
 }
 
 /* ===============================
    FOOTER
 ================================ */
 footer {
-  background: #1b5e20;
-  color: #e8f5e9;
+  margin-top: 40px;
   text-align: center;
-  padding: 22px;
-  font-size: 14px;
-  margin-top: 60px;
+  font-size: 13px;
+  color: #5c7c6a;
+  padding-bottom: 20px;
 }
 
 /* ===============================
-   MOBILE RESPONSIVE
+   MOBILE POLISH
 ================================ */
-@media (max-width: 768px) {
-
-  header {
-    padding: 16px 20px;
-  }
-
-  .main {
-    grid-template-columns: 1fr;
-    padding: 40px 20px;
-  }
-
+@media (max-width: 600px) {
   .info h1 {
-    font-size: 28px;
-  }
-
-  .upload-card {
-    padding: 26px;
+    font-size: 22px;
   }
 }
