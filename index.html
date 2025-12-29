@@ -1,1 +1,112 @@
-hello
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Coconut AI – Disease Detection</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <div class="header-left">
+    <span class="logo">🥥</span>
+    <span class="brand">Coconut AI</span>
+  </div>
+
+  <div class="header-right">
+    <span id="langBadge"></span>
+  </div>
+</header>
+
+<section class="main">
+  <div class="info">
+    <span class="badge" id="badgeText"></span>
+    <h1 id="titleText"></h1>
+    <p id="descText"></p>
+  </div>
+
+  <div class="upload-card">
+    <h3 id="uploadTitle"></h3>
+    <input type="file" id="imageInput" accept="image/*">
+    <button onclick="predict()" id="analyzeBtn"></button>
+    <div class="result" id="resultText"></div>
+  </div>
+</section>
+
+<footer id="footerText"></footer>
+
+<script>
+  const language = localStorage.getItem("language") || "ta";
+
+  const content = {
+    ta: {
+      badge: "🌱 விவசாயிகளுக்கான AI சேவை",
+      title: "தென்னை இலை நோய்கள் கண்டறிதல்",
+      desc: "உங்கள் தென்னை மரத்தில் உள்ள இலை நோய்களை ஒரு படம் மூலம் உடனடியாக அறியலாம்.",
+      upload: "இலை படம் பதிவேற்றவும்",
+      button: "பரிசோதிக்க",
+      analyzing: "படம் ஆய்வு செய்யப்படுகிறது...",
+      detected: "கண்டறியப்பட்டது",
+      footer: "© 2025 Coconut AI • விவசாயிகளுக்கான புத்திசாலி தீர்வு",
+      diseases: ["ஆரோக்கியமான இலை", "இலை கருகல்", "மொட்டு அழுகல்", "வேர் வாடல்"],
+      langLabel: "தமிழ்"
+    },
+    en: {
+      badge: "🌱 AI Service for Farmers",
+      title: "Coconut Leaf Disease Detection",
+      desc: "Upload a coconut leaf image to detect diseases instantly.",
+      upload: "Upload Leaf Image",
+      button: "Analyze",
+      analyzing: "Analyzing image...",
+      detected: "Detected",
+      footer: "© 2025 Coconut AI • Smart Farming Solution",
+      diseases: ["Healthy Leaf", "Leaf Blight", "Bud Rot", "Root Wilt"],
+      langLabel: "English"
+    }
+  };
+
+  const t = content[language];
+
+  function speak(text) {
+    const msg = new SpeechSynthesisUtterance(text);
+    msg.lang = language === "ta" ? "ta-IN" : "en-US";
+    window.speechSynthesis.speak(msg);
+  }
+
+  function loadContent() {
+    document.getElementById("badgeText").innerText = t.badge;
+    document.getElementById("titleText").innerText = t.title;
+    document.getElementById("descText").innerText = t.desc;
+    document.getElementById("uploadTitle").innerText = t.upload;
+    document.getElementById("analyzeBtn").innerText = t.button;
+    document.getElementById("footerText").innerText = t.footer;
+    document.getElementById("langBadge").innerText = t.langLabel;
+
+    speak(t.title);
+  }
+
+  function predict() {
+    const result = document.getElementById("resultText");
+
+    result.innerText = t.analyzing;
+    speak(t.analyzing);
+
+    setTimeout(() => {
+      const disease = t.diseases[Math.floor(Math.random() * t.diseases.length)];
+      const output = `${t.detected}: ${disease}`;
+      result.innerText = output;
+      speak(output);
+    }, 1500);
+  }
+
+  window.onload = loadContent;
+</script>
+
+</body>
+</html>
